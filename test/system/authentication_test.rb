@@ -2,10 +2,7 @@ require "application_system_test_case"
 
 class AuthenticationTest < ApplicationSystemTestCase
   test "signing up" do
-    page.driver.basic_authorize(
-      ENV.fetch("BASIC_AUTH_USERNAME"),
-      ENV.fetch("BASIC_AUTH_PASSWORD"),
-    )
+    http_basic_authenticate
 
     visit root_url
 
@@ -18,10 +15,7 @@ class AuthenticationTest < ApplicationSystemTestCase
   end
 
   test "signing in" do
-    page.driver.basic_authorize(
-      ENV.fetch("BASIC_AUTH_USERNAME"),
-      ENV.fetch("BASIC_AUTH_PASSWORD"),
-    )
+    http_basic_authenticate
 
     user = User.create!(
       email: "foo@bar.com",
