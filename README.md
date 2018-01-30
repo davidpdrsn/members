@@ -1,24 +1,14 @@
-# README
+# Members
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+App to keep track of members in martial club.
 
-Things you may want to cover:
+This app is being built live on stream at twitch.tv/davidpdrsn
 
-* Ruby version
+## TODO
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [ ] Members show
+- [ ] Filters
+  - [ ] Membership type
+  - [ ] Below 25 years of age or above
+- [ ] Recurring emails
+- [ ] Deploy to Heroku
