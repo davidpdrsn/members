@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   delete "/sign_out" => "sessions#destroy", as: "sign_out"
   get "/sign_up" => "users#new", as: "sign_up"
 
+  resources :members, only: [:index, :show, :new, :create]
+
   root to: "welcome#index"
 end

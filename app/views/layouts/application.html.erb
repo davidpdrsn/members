@@ -13,6 +13,9 @@
     <% if signed_in? %>
       <p>Signed in as <%= current_user.email %></p>
       <%= button_to 'Sign out', sign_out_path, method: :delete %>
+
+      <%= link_to "All members", members_path %>
+      <%= link_to "Create new member", new_member_path %>
     <% else %>
       <%= link_to 'Sign up', sign_up_path %>
       <%= link_to 'Sign in', sign_in_path %>

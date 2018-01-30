@@ -1,0 +1,11 @@
+<% if @members.present? %>
+  <ul>
+    <% @members.each do |member| %>
+      <li>
+        <%= member.name %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no members yet 😭</p>
+<% end %>

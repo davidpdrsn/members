@@ -1,0 +1,30 @@
+<%= form_for @member do |form| %>
+  <div>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= form.label :middle_name %>
+    <%= form.text_field :middle_name %>
+  </div>
+
+  <div>
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div>
+    <%= form.label :date_of_birth %>
+    <%= form.date_select :date_of_birth %>
+  </div>
+
+  <div>
+    <%= form.label :membership_type %>
+    <%= form.select :membership_type, options_for_select(Member.membership_types.map { |name, value| [name.capitalize, name] }) %>
+  </div>
+
+  <div>
+    <%= form.submit "Create member" %>
+  </div>
+<% end %>
