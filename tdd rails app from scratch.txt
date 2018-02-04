@@ -1,0 +1,28 @@
+# App for managing members of a martial arts club
+
+## Models
+
+- Users (admins)
+- Members
+  - Enum for `membership_type`
+    - Active
+    - Passive
+
+## What we'll do today
+
+- Generate the app
+
+- Get the TDD ball rolling
+  - Add the first test and watch it fail
+  - Use poltergeist for testing with a browser
+
+- Sign up as admin through a protected endpoint
+  - Using `clearance` gem
+
+- Basic CRUD for members
+  - Including filtering like how many of each membership type
+  - How many members do we have under and over the age of 25
+
+- Deploy to Heroku (maybe)
+
+We wont be worrying about any UI
