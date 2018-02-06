@@ -1,6 +1,10 @@
 class MembersController < ApplicationController
   def index
     @members = Member.all
+
+    if params[:filters].present?
+      @members = apply_filters(@members)
+    end
   end
 
   def show
@@ -26,7 +30,16 @@ class MembersController < ApplicationController
       flash.notice = "Member created"
       redirect_to @member
     else
-      raise "TODO"
+      flash.alert = "Something went wrong"
+      render :new
     end
+  end
+
+  private
+
+  def apply_filters(members)
+    MemberFilters
+      .new(filters: params.fetch(:filters))
+      .apply_filters(members)
   end
 end

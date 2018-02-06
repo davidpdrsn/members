@@ -1,9 +1,14 @@
 FactoryBot.define do
   factory :member do
-    first_name "John"
-    middle_name  "Dude"
-    last_name  "Doe"
+    sequence(:first_name) { |i| "John #{i}" }
+    sequence(:middle_name) { |i| "Doe #{i}" }
+    sequence(:last_name) { |i| "Dude #{i}" }
     date_of_birth 10.years.ago
     membership_type :active
+  end
+
+  factory :user do
+    sequence(:email) { |i| "admin_#{i}@example.com" }
+    password "secret"
   end
 end

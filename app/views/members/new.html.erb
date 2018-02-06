@@ -1,3 +1,11 @@
+<% if @member.errors.any? %>
+  <ul>
+    <% @member.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for @member do |form| %>
   <div>
     <%= form.label :first_name %>

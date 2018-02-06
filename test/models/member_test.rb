@@ -1,8 +1,6 @@
 require "test_helper"
 
 class MemberTest < ActiveSupport::TestCase
-  include FactoryBot::Syntax::Methods
-
   test "#name" do
     member = build(
       :member,

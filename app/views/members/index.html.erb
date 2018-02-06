@@ -1,8 +1,29 @@
+<%= form_tag members_path, method: :get do %>
+  <%= fields_for :filters do |filter_fields| %>
+    <div>
+      <%= filter_fields.label :membership_type %>
+      <%=
+        filter_fields.select(
+          :membership_type,
+          options_for_select(
+            [["All", nil]] + Member.membership_types.map { |name, value| [name.humanize.titleize, name] },
+            params.dig(:filters, :membership_type),
+          )
+        )
+      %>
+    </div>
+
+    <div>
+      <%= filter_fields.submit "Filter" %>
+    </div>
+  <% end %>
+<% end %>
+
 <% if @members.present? %>
   <ul>
     <% @members.each do |member| %>
       <li>
-        <%= link_to member.name, member %>
+        <%= link_to "#{member.name} (#{member.membership_type})", member %>
       </li>
     <% end %>
   </ul>

@@ -7,6 +7,8 @@ class Member < ApplicationRecord
     ki_doin: 4,
   }
 
+  validates :first_name, :middle_name, :last_name, presence: true
+
   def name
     [first_name, middle_name, last_name].join(" ")
   end
