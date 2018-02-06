@@ -1,7 +1,10 @@
 class Member < ApplicationRecord
   enum membership_type: {
     active: 0,
-    inactive: 1,
+    passive: 1,
+    family: 2,
+    dgi: 3,
+    ki_doin: 4,
   }
 
   def name

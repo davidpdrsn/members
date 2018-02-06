@@ -21,7 +21,7 @@
 
   <div>
     <%= form.label :membership_type %>
-    <%= form.select :membership_type, options_for_select(Member.membership_types.map { |name, value| [name.capitalize, name] }) %>
+    <%= form.select :membership_type, options_for_select(Member.membership_types.map { |name, value| [name.humanize.titleize, name] }) %>
   </div>
 
   <div>

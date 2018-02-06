@@ -2,14 +2,14 @@
 
 App to keep track of members in martial club.
 
-This app is being built live on stream at twitch.tv/davidpdrsn
+This app is being built live on stream at `twitch.tv/davidpdrsn`
 
 ## Tuesday 6th of February
 
-- [ ] members#show
+- [x] members#show
 
-- [ ] New membership types
-  - [ ] Setup [factory bot](https://github.com/thoughtbot/factory_bot)
+- [x] New membership types
+  - [x] Setup [factory bot](https://github.com/thoughtbot/factory_bot)
 
 - [ ] members#index
   - [ ] Filters
@@ -36,4 +36,4 @@ This app is being built live on stream at twitch.tv/davidpdrsn
   - [ ] Dad's email
   - [ ] Admission date
 
-## TODO
+- [ ] members#destroy

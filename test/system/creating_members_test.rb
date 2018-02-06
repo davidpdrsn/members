@@ -18,7 +18,7 @@ class CreatingMembersTest < ApplicationSystemTestCase
     click_button "Create member"
 
     assert_selector ".flash", text: "Member created"
-    assert_selector "p", text: "Bob Alice Cindy"
+    assert_selector "h1", text: "Bob Alice Cindy"
 
     click_link "All members"
     assert_selector "li", text: "Bob Alice Cindy"

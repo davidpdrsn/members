@@ -4,5 +4,4 @@ require 'rails/test_help'
 Dir["test/support/**/*.rb"].each { |file| require Rails.root.join(file) }
 
 class ActiveSupport::TestCase
-  fixtures :all
 end
