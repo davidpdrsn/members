@@ -4,21 +4,31 @@ class MemberFilters
   end
 
   def apply_filters(members)
-    if @filters["membership_type"].present?
-      members = members.where(
-        membership_type: @filters.fetch("membership_type")
-      )
+    [
+      :apply_membership_type_filter,
+      :apply_minimum_age_filter,
+    ].reduce(members) do |acc, method|
+      send(method, acc)
     end
+  end
 
-    if @filters["minimum_age"].present?
-      minimum_age = @filters.fetch("minimum_age")
+  private
 
-      members = members.where(
-        "members.date_of_birth > now() - interval '? year'",
-        minimum_age.to_i,
-      )
-    end
+  def apply_membership_type_filter(members)
+    return members unless @filters["membership_type"].present?
 
-    members
+    members.where(
+      membership_type: @filters.fetch("membership_type")
+    )
+  end
+
+  def apply_minimum_age_filter(members)
+    return members unless @filters["minimum_age"].present?
+
+    minimum_age = @filters.fetch("minimum_age")
+    members = members.where(
+      "members.date_of_birth > now() - interval '? year'",
+      minimum_age.to_i,
+    )
   end
 end

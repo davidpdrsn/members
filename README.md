@@ -11,15 +11,13 @@ This app is being built live on stream at `twitch.tv/davidpdrsn`
 - [x] New membership types
   - [x] Setup [factory bot](https://github.com/thoughtbot/factory_bot)
 
-- [ ] members#index
-  - [ ] Filters
-    - [ ] Membership type
-    - [ ] Below `n` years of age or above (25 special, 15 kids)
+- [x] members#index
+  - [x] Filters
+    - [x] Membership type
+    - [x] Below `n` years of age or above (25 special, 15 kids)
 
 - [ ] Recurring emails
   - [ ] New membership types
-
-- [ ] Deploy to Heroku
 
 - [ ] New member fields
   - [ ] Nationality
@@ -36,4 +34,4 @@ This app is being built live on stream at `twitch.tv/davidpdrsn`
   - [ ] Dad's email
   - [ ] Admission date
 
-- [ ] members#destroy
+- [ ] Deploy to Heroku
