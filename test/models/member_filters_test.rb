@@ -40,4 +40,21 @@ class MemberFiltersTest < ActiveSupport::TestCase
       matching_members.map(&:name).sort,
     )
   end
+
+  test "filtering on age" do
+    Timecop.freeze(Time.zone.now) do
+      child = create :member, first_name: "child", date_of_birth: 15.years.ago
+      youngster = create :member, first_name: "youngster", date_of_birth: 24.years.ago
+      adult = create :member, first_name: "adult", date_of_birth: 26.years.ago
+
+      matching_members = MemberFilters
+        .new(filters: { "minimum_age" => "25" })
+        .apply_filters(Member.all)
+
+      assert_equal(
+        [child, youngster].map(&:first_name).sort,
+        matching_members.map(&:first_name).sort,
+      )
+    end
+  end
 end

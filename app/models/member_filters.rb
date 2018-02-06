@@ -10,6 +10,15 @@ class MemberFilters
       )
     end
 
+    if @filters["minimum_age"].present?
+      minimum_age = @filters.fetch("minimum_age")
+
+      members = members.where(
+        "members.date_of_birth > now() - interval '? year'",
+        minimum_age.to_i,
+      )
+    end
+
     members
   end
 end

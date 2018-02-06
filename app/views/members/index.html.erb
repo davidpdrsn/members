@@ -14,6 +14,19 @@
     </div>
 
     <div>
+      <%= filter_fields.label :minimum_age %>
+      <%=
+        filter_fields.select(
+          :minimum_age,
+          options_for_select(
+            [["None", nil], ["15", 15], ["25", "25"]],
+            params.dig(:filters, :membership_type),
+          )
+        )
+      %>
+    </div>
+
+    <div>
       <%= filter_fields.submit "Filter" %>
     </div>
   <% end %>
@@ -27,7 +40,7 @@
   <ul>
     <% @members.each do |member| %>
       <li>
-        <%= link_to "#{member.name} (#{member.membership_type})", member %>
+        <%= link_to "#{member.name} (#{member.membership_type}, #{member.date_of_birth})", member %>
       </li>
     <% end %>
   </ul>
