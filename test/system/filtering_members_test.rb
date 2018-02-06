@@ -15,6 +15,7 @@ class FilteringMembersTest < ApplicationSystemTestCase
     select "Active", from: "Membership type"
     click_button "Filter"
 
+    assert_selector "p", text: "1 matching member"
     assert_selector "a", text: active_member.name
     assert_no_selector "a", text: passive_member.name
     assert_no_selector "a", text: family_member.name
@@ -34,6 +35,7 @@ class FilteringMembersTest < ApplicationSystemTestCase
     select "All", from: "Membership type"
     click_button "Filter"
 
+    assert_selector "p", text: "3 matching members"
     assert_selector "a", text: active_member.name
     assert_selector "a", text: passive_member.name
     assert_selector "a", text: family_member.name

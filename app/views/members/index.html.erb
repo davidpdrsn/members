@@ -20,6 +20,10 @@
 <% end %>
 
 <% if @members.present? %>
+  <p>
+    <%= @members.size %> matching <%= "member".pluralize(@members.size) %>
+  </p>
+
   <ul>
     <% @members.each do |member| %>
       <li>
