@@ -17,5 +17,11 @@ Rails.application.routes.draw do
 
   resources :members, only: [:index, :show, :new, :create]
 
+  resources :payments, only: [:index, :create] do
+    collection do
+      patch :update_statuses
+    end
+  end
+
   root to: "welcome#index"
 end

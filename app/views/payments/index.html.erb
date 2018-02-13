@@ -1,0 +1,38 @@
+<%= link_to "Create pending payments for all members", payments_path, method: :post, data: { confirm: "Sure?" } %>
+
+<h1>Pending payments</h1>
+
+<div class="pending-payments">
+  <% if @pending_payments.present? %>
+    <%= form_tag update_statuses_payments_path, method: :patch do %>
+      <ul>
+        <% @pending_payments.each do |payment| %>
+          <li class="pending-payment">
+            <%= check_box_tag "payments[#{payment.id}]" %>
+            <%= label_tag "payments[#{payment.id}]", payment.member.name %>
+          </li>
+        <% end %>
+      </ul>
+
+      <%= submit_tag "Save payment statuses" %>
+    <% end %>
+  <% else %>
+    No pending payments 👍
+  <% end %>
+</div>
+
+<h1>Payed payments</h1>
+
+<div class="payed-payments">
+  <% if @payed_payments.present? %>
+    <ul>
+      <% @payed_payments.each do |payment| %>
+        <li class="payed-payment">
+          <%= payment.member.name %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    No payed payments 👎
+  <% end %>
+</div>

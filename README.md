@@ -17,8 +17,11 @@ This app is being built live on stream at `twitch.tv/davidpdrsn`
     - [x] Below `n` years of age or above (25 special, 15 kids)
   - [x] Pagination
 
-- [ ] Recurring emails
-  - [ ] New membership types
+- [ ] Payments
+  - [x] Make list of pending and payed payments
+  - [ ] Send email when creating pending payments
+    - Maybe use https://rubygems.org/gems/mailcatcher/versions/0.6.1
+  - [ ] Group payed payments by date
 
 - [ ] Update `members#new` with the new fields from below
 

@@ -5,6 +5,8 @@ FactoryBot.define do
     sequence(:last_name) { |i| "Dude #{i}" }
     date_of_birth 10.years.ago
     membership_type :active
+    sequence(:email) { |i| "admin_#{i}@example.com" }
+    admission_date { Date.today }
   end
 
   factory :user do
