@@ -15,6 +15,7 @@ This app is being built live on stream at `twitch.tv/davidpdrsn`
   - [x] Filters
     - [x] Membership type
     - [x] Below `n` years of age or above (25 special, 15 kids)
+  - [ ] Pagination
 
 - [ ] Recurring emails
   - [ ] New membership types
