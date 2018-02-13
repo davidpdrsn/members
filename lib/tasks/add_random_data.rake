@@ -9,12 +9,16 @@ task add_random_data: :environment do
           [6, 10, 15, 15, 20, 25, 27, 31, 56].shuffle.each do |number_of_years|
             date_of_birth = number_of_years.years.ago
             Member.membership_types.keys.shuffle.each do |type|
+              random = SecureRandom.hex(5)
+              email = "#{first_name}_#{middle_name}_#{random}@#{last_name}.com"
               acc << Member.new(
                 first_name: first_name,
                 middle_name: middle_name,
                 last_name: last_name,
                 date_of_birth: date_of_birth,
                 membership_type: type,
+                email: email,
+                admission_date: Date.today,
               )
             end
           end

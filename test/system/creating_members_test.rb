@@ -10,11 +10,20 @@ class CreatingMembersTest < ApplicationSystemTestCase
     fill_in "First name", with: "Bob"
     fill_in "Middle name", with: "Alice"
     fill_in "Last name", with: "Cindy"
+
+    fill_in "Email", with: "bob@example.com"
+
     today = Date.today
     select today.year, from: "member_date_of_birth_1i"
     select today.strftime("%B"), from: "member_date_of_birth_2i"
     select today.day, from: "member_date_of_birth_3i"
+
+    select today.year, from: "member_admission_date_1i"
+    select today.strftime("%B"), from: "member_admission_date_2i"
+    select today.day, from: "member_admission_date_3i"
+
     select "Active", from: 'Membership type'
+
     click_button "Create member"
 
     assert_selector ".flash", text: "Member created"

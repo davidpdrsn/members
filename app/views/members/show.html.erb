@@ -3,18 +3,41 @@
 </h1>
 
 <dl>
-  <dt>First name</dt>
-  <dd><%= @member.first_name %></dd>
+  <%
+    [
+      ["First name", :first_name],
+      ["Middle name", :middle_name],
+      ["Last name", :last_name],
+      ["Membership type", ->(member) { member.membership_type.titleize }],
+      ["Date of Birth", :date_of_birth],
+      ["Nationality", :nationality],
+      ["Address", :address],
+      ["Zip", :zip],
+      ["City", :city],
+      ["Phone", :phone],
+      ["Email", :email],
+      ["CPR", :cpr],
+      ["Dad's phone", :dad_phone],
+      ["Mom's phone", :mom_phone],
+      ["Dad's email", :dad_email],
+      ["Mom's email", :mom_email],
+      ["Admission date", :admission_date],
+    ].each do |humanreadable_field_value, field|
+  %>
+    <dt><%= humanreadable_field_value %></dt>
 
-  <dt>Middle name</dt>
-  <dd><%= @member.middle_name %></dd>
+    <%
+        value = if field.respond_to?(:call)
+                  field.call @member
+                else
+                  @member.send(field)
+                end
 
-  <dt>Last name</dt>
-  <dd><%= @member.last_name %></dd>
+        if value.nil?
+          value = "-"
+        end
+    %>
 
-  <dt>Membership type</dt>
-  <dd><%= @member.membership_type.titleize %></dd>
-
-  <dt>Date of birth</dt>
-  <dd><%= @member.date_of_birth %></dd>
+    <dd><%= value %></dd>
+  <% end %>
 </dl>

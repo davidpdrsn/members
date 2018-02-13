@@ -27,6 +27,8 @@ class MembersController < ApplicationController
       :last_name,
       :date_of_birth,
       :membership_type,
+      :email,
+      :admission_date,
     )
 
     @member = Member.new(member_params)

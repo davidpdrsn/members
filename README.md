@@ -15,24 +15,26 @@ This app is being built live on stream at `twitch.tv/davidpdrsn`
   - [x] Filters
     - [x] Membership type
     - [x] Below `n` years of age or above (25 special, 15 kids)
-  - [ ] Pagination
+  - [x] Pagination
 
 - [ ] Recurring emails
   - [ ] New membership types
 
-- [ ] New member fields
-  - [ ] Nationality
-  - [ ] Address
-  - [ ] Zip
-  - [ ] City
-  - [ ] Hide address (boolean)
-  - [ ] CPR
-  - [ ] Phone
-  - [ ] Mom's phone
-  - [ ] Dad's phone
-  - [ ] Email
-  - [ ] Mom's email
-  - [ ] Dad's email
-  - [ ] Admission date
+- [ ] Update `members#new` with the new fields from below
+
+- [x] New member fields
+  - [x] Nationality
+  - [x] Address
+  - [x] Zip
+  - [x] City
+  - [x] Hide address (boolean)
+  - [x] CPR
+  - [x] Phone
+  - [x] Mom's phone
+  - [x] Dad's phone
+  - [x] Email
+  - [x] Mom's email
+  - [x] Dad's email
+  - [x] Admission date
 
 - [ ] Deploy to Heroku
