@@ -40,7 +40,7 @@
   <ul>
     <% @members.each do |member| %>
       <li>
-        <%= link_to "#{member.name} (#{member.membership_type}, #{member.date_of_birth})", member %>
+        <%= link_to member.name, member %>
       </li>
     <% end %>
   </ul>
