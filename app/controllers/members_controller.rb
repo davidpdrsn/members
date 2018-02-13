@@ -5,6 +5,11 @@ class MembersController < ApplicationController
     if params[:filters].present?
       @members = apply_filters(@members)
     end
+
+    @members = PaginatedRelation.new(
+      relation: @members,
+      per_page: 20,
+    ).page(params[:page].try(:to_i) || 0)
   end
 
   def show

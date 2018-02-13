@@ -37,13 +37,39 @@
     <%= @members.size %> matching <%= "member".pluralize(@members.size) %>
   </p>
 
-  <ul>
+  <ul class="members-list">
     <% @members.each do |member| %>
       <li>
         <%= link_to member.name, member %>
       </li>
     <% end %>
   </ul>
+
+  <div class="pagination">
+    <%=
+      link_to_if(
+        @members.previous_page?,
+        "Previous page",
+        members_path(
+          page: @members.index_of_previous_page,
+          filters: params[:filters].try(:to_unsafe_hash),
+        ),
+      )
+    %>
+    <%=
+      link_to_if(
+        @members.next_page?,
+        "Next page",
+        members_path(
+          page: @members.index_of_next_page,
+          filters: params[:filters].try(:to_unsafe_hash),
+        ),
+      )
+    %>
+    <p>
+      Page <%= @members.current_page_index + 1 %> of <%= @members.total_number_of_pages %>
+    </p>
+  </div>
 <% else %>
   <p>There are no members yet 😭</p>
 <% end %>
