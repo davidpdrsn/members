@@ -6,6 +6,8 @@ This app is being built live on stream at `twitch.tv/davidpdrsn`
 
 ## Tuesday 6th of February
 
+- [x] Admin authorization/authentication
+
 - [x] members#show
 
 - [x] New membership types
@@ -21,7 +23,8 @@ This app is being built live on stream at `twitch.tv/davidpdrsn`
   - [x] Make list of pending and payed payments
   - [ ] Send email when creating pending payments
     - Maybe use https://rubygems.org/gems/mailcatcher/versions/0.6.1
-  - [ ] Group payed payments by date
+  - [ ] Notify members that their payment has been registered
+  - [ ] Group payed payments by date in view
 
 - [ ] Update `members#new` with the new fields from below
 
