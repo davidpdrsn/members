@@ -5,12 +5,7 @@ class PaymentsController < ApplicationController
   end
 
   def create
-    Member.all.each do |member|
-      Payment.create!(
-        member: member,
-        status: :pending,
-      )
-    end
+    Payment.create_pending_payment_for_all_members
 
     redirect_to(
       payments_path,

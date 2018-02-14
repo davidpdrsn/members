@@ -1,4 +1,6 @@
 class Member < ApplicationRecord
+  has_many :payments, dependent: :destroy
+
   enum membership_type: {
     active: 0,
     passive: 1,
@@ -11,5 +13,9 @@ class Member < ApplicationRecord
 
   def name
     [first_name, middle_name, last_name].join(" ")
+  end
+
+  def create_pending_payment
+    payments.create!(status: :pending)
   end
 end
