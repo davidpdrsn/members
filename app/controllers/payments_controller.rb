@@ -14,19 +14,15 @@ class PaymentsController < ApplicationController
   end
 
   def update_statuses
-    params[:payments].each do |id, value|
-      payment = Payment.find(id)
+    updates = UpdatesPaymentStatuses.new(
+      payed_payment_params: params[:payments],
+    )
 
-      if value == "1"
-        payment.update!(status: :payed)
-      else
-        raise "TODO"
-      end
-    end
+    updates.update_payments
 
     redirect_to(
       payments_path,
-      notice: "Updated #{params[:payments].keys.length} payments",
+      notice: "Updated #{updates.payments.size} payments",
     )
   end
 end
